@@ -2,24 +2,24 @@ import Nav from "../Nav/nav.jsx";
 
 function Header() {
   return (
-    <>
-      <header
-        className="d-flex justify-content-between align-items-center"
-        style={{
-          backgroundImage: "url(./IMG_0400.JPG)",
-          color: "white",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
-        <h1 className="m-4">
-          <a className="navbar-brand" style={{ color: "black" }}>
-            Dogwood Collars LLC
-          </a>
-        </h1>
-        <Nav />
-      </header>
-    </>
+    <header
+      className="d-flex justify-content-between align-items-center"
+      style={{
+        backgroundImage: "url(./IMG_0400.JPG)",
+        color: "white",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        padding: "10px 20px",
+        position: "relative",
+      }}
+    >
+      <h1 className="m-4">
+        <a className="navbar-brand" style={{ color: "black" }}>
+          Dogwood Collars LLC
+        </a>
+      </h1>
+      <Nav />
+    </header>
   );
 }
 

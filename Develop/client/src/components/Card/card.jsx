@@ -1,10 +1,5 @@
 import { useState } from "react";
-const itemPrices = {
-  XS: 24,
-  S: 28,
-  M: 38,
-  L: 48,
-};
+
 function CardComponent({ collar }) {
   const [selectedSize, setSelectedSize] = useState("");
 
@@ -15,19 +10,15 @@ function CardComponent({ collar }) {
   const handleAddToCart = () => {
     if (selectedSize) {
       console.log(`Added ${collar.name} in size ${selectedSize} to cart`);
-      let price = itemPrices[selectedSize];
       const item = {
-        id: collar.id,
         name: collar.name,
         size: collar.size,
-        price: price,
+        price: collar.price,
         image: collar.image,
       };
 
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
       cart.push(item);
-
       localStorage.setItem("cart", JSON.stringify(cart));
     } else {
       alert("Please select a size before adding to cart");
@@ -35,20 +26,21 @@ function CardComponent({ collar }) {
   };
 
   return (
-    <div className="card m-5" style={{ width: "18rem" }}>
+    <div className="card m-3" style={{ width: "18rem", display: "flex", flexDirection: "column" }}>
       <img
         src={collar.image}
         className="card-img-top"
         alt="..."
-        style={{ width: "100%" }}
+        style={{ width: "100%", borderTopLeftRadius: "8px", borderTopRightRadius: "8px" }}
       />
-      <div className="card-body">
+      <div className="card-body" style={{ flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
         <h3>{collar.name}</h3>
         <p className="card-text">{collar.price}</p>
         <select
           value={selectedSize}
           onChange={handleSizeChange}
           className="size-selector"
+          style={{ marginBottom: "10px" }}
         >
           <option value="">Select size</option>
           <option value="XS">X-Small $24</option>
@@ -57,8 +49,7 @@ function CardComponent({ collar }) {
           <option value="L">Large $48</option>
         </select>
 
-        {/* Add to cart button */}
-        <button onClick={handleAddToCart}>Add to cart</button>
+        <button onClick={handleAddToCart} className="btn btn-primary">Add to cart</button>
       </div>
     </div>
   );
