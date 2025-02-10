@@ -4,6 +4,8 @@
 /* Main container styling */
 /* ---------------------- */
 .cart-page {
+  display: flex;
+  flex-direction: column;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
@@ -192,5 +194,3 @@
 .modal-footer .btn-primary:hover {
   opacity: 0.8;
 }
-
-
