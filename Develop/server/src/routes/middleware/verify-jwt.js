@@ -54,4 +54,7 @@ const verifyJWT = async (req, res, next) => {
   });
 };
 
+const syncToken = jwt.sign({payload: { x: 1, y: '2'}}, 'JWT_SECRET');
+console.log(syncToken);
+
 module.exports = verifyJWT;
