@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 <<<<<<< HEAD
 
@@ -26,10 +24,14 @@ function CardComponent({ collar, onAddToCart }) {
       const item = {
         name: collar.name,
 <<<<<<< HEAD
+<<<<<<< HEAD
         size: collar.size,
         price: collar.price,
 =======
         size: selectedSize, 
+=======
+        size: selectedSize,
+>>>>>>> main
         price: price,
 >>>>>>> main
         image: collar.image,
@@ -39,7 +41,6 @@ function CardComponent({ collar, onAddToCart }) {
       cart.push(item);
       localStorage.setItem("cart", JSON.stringify(cart));
 
-      
       onAddToCart(collar.name);
 
       // Clear the size selection after adding to the cart
@@ -59,7 +60,7 @@ function CardComponent({ collar, onAddToCart }) {
       />
       <div className="card-body" style={{ flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
         <h3>{collar.name}</h3>
-        <p className="card-text">{collar.price}</p>
+        <p className="card-text">$24-$48</p>
         <select
           value={selectedSize}
           onChange={handleSizeChange}
@@ -72,8 +73,16 @@ function CardComponent({ collar, onAddToCart }) {
           <option value="M">Medium $38</option>
           <option value="L">Large $48</option>
         </select>
+        <br></br>
 
+<<<<<<< HEAD
         <button onClick={handleAddToCart} className="btn btn-primary">Add to cart</button>
+=======
+        {/* Add to cart button */}
+        <button className="btn btn-info" onClick={handleAddToCart}>
+          Add to cart
+        </button>
+>>>>>>> main
       </div>
     </div>
   );
