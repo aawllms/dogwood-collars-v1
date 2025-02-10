@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React, { useEffect, useState } from "react";
 // import "./CartPage.css";
 // import Button from "react-bootstrap/Button";
@@ -141,6 +142,8 @@
 
 // export default CartPage;
 
+=======
+>>>>>>> main
 import React, { useEffect, useState } from "react";
 import "./CartPage.css";
 import Button from "react-bootstrap/Button";
@@ -148,6 +151,7 @@ import Modal from "react-bootstrap/Modal";
 
 const CartPage = () => {
   const [show, setShow] = useState(false);
+<<<<<<< HEAD
   const [cartItems, setCartItems] = useState([]);
 
   // 1. State for login form
@@ -161,6 +165,14 @@ const CartPage = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+=======
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [cartItems, setCartItems] = useState([]);
+
+>>>>>>> main
   // Load cart items from localStorage when component mounts
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -174,6 +186,7 @@ const CartPage = () => {
     }
   }, [cartItems]);
 
+<<<<<<< HEAD
   // Remove item from cart
   const handleRemoveItem = (id) => {
     const itemIndex = cartItems.findIndex((item) => item.id === id);
@@ -185,12 +198,37 @@ const CartPage = () => {
   };
 
   // Calculate total price
+=======
+  // const handleQuantityChange = (id, newQuantity) => {
+  //   if (newQuantity < 1) return;
+  //   const updatedItems = cartItems.map((item) =>
+  //     item.id === id ? { ...item, quantity: newQuantity } : item
+  //   );
+  //   setCartItems(updatedItems);
+  // };
+
+  const handleRemoveItem = (id) => {
+    // Find the index of the first item with the given id
+    const itemIndex = cartItems.findIndex((item) => item.id === id);
+    console.log(id);
+    // console.log(item);
+
+    // If the item exists, create a new array without that specific item
+    if (itemIndex !== -1) {
+      const updatedItems = [...cartItems]; // Copy the array
+      updatedItems.splice(itemIndex, 1); // Remove the item at the found index
+      setCartItems(updatedItems); // Update the state
+    }
+  };
+
+>>>>>>> main
   const getTotalPrice = () => {
     return cartItems
       .reduce((total, item) => total + parseFloat(item.price), 0)
       .toFixed(2);
   };
 
+<<<<<<< HEAD
   // 2. Handle login form submission
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -236,6 +274,8 @@ const CartPage = () => {
     }
   };
 
+=======
+>>>>>>> main
   return (
     <div className="cart-page">
       <Modal show={show} onHide={handleClose}>
@@ -243,6 +283,7 @@ const CartPage = () => {
           <Modal.Title>User Information</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+<<<<<<< HEAD
           <form onSubmit={handleLogin}>
             <label htmlFor="Email">Email:</label>
             <input
@@ -281,13 +322,39 @@ const CartPage = () => {
           <button>Continue as Guest</button>
         </Modal.Body>
 
+=======
+          <form>
+            <label htmlFor="Email">Email:</label>
+            <input type="text" />
+            <br></br>
+            <label htmlFor="Password">Password:</label>
+            <input type="text" />
+            <br></br>
+            <button>Login</button>
+            <br></br>
+
+            <a>
+              <label htmlFor="Firstname">First Name:</label>
+              <input type="text" />
+              <label htmlFor="Lastname">Last Name:</label>
+              <input type="text" />
+              <label htmlFor="Email">Email:</label>
+              <input type="text" />
+              <button>Continue as Guest</button>
+            </a>
+          </form>
+        </Modal.Body>
+>>>>>>> main
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
       </Modal>
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
       <h1>Your Cart</h1>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
@@ -298,6 +365,11 @@ const CartPage = () => {
               <tr>
                 <th className="cart-header-left">Product</th>
                 <th className="cart-header-left">Price</th>
+<<<<<<< HEAD
+=======
+                {/* <th className="cart-header-left">Quantity</th> */}
+                {/* <th className="cart-header-left">Subtotal</th> */}
+>>>>>>> main
                 <th className="cart-header-left">Action</th>
               </tr>
             </thead>
