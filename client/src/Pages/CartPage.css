@@ -1,10 +1,8 @@
-/* General styles */
 body {
   font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f8f9fa; /* Light background for contrast */
-  color: #333;
+  background-color: #f8f9fa;
 }
 
 .cart-page {
@@ -29,7 +27,6 @@ body {
   color: #6c757d;
 }
 
-/* Cart table styles */
 .cart-table {
   width: 100%;
   border-collapse: collapse;
@@ -57,7 +54,6 @@ body {
   border-radius: 5px;
 }
 
-/* Buttons */
 .cart-remove-button,
 .cart-checkout-button {
   padding: 0.5rem 1rem;
@@ -69,7 +65,7 @@ body {
 }
 
 .cart-remove-button {
-  background-color: #dc3545; /* Red button */
+  background-color: #dc3545;
   color: #fff;
 }
 
@@ -78,7 +74,7 @@ body {
 }
 
 .cart-checkout-button {
-  background-color: #007bff; /* Bootstrap blue */
+  background-color: #007bff;
   color: #fff;
   font-size: 1rem;
 }
@@ -87,7 +83,6 @@ body {
   background-color: #0056b3;
 }
 
-/* Summary section */
 .cart-summary {
   display: flex;
   justify-content: space-between;
@@ -103,7 +98,6 @@ body {
   margin: 0;
 }
 
-/* Modal styling */
 .modal-content {
   background-color: #ffffff;
   border-radius: 10px;
@@ -172,7 +166,6 @@ body {
   background-color: #5a6268;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .cart-summary {
     flex-direction: column;

@@ -31,7 +31,6 @@ function CardComponent({ collar, onAddToCart }) {
 
       onAddToCart(collar.name);
 
-      // Clear the size selection after adding to the cart
       setSelectedSize("");
     } else {
       alert("Please select a size before adding to cart");
@@ -62,7 +61,6 @@ function CardComponent({ collar, onAddToCart }) {
         </select>
         <br></br>
 
-        {/* Add to cart button */}
         <button className="btn btn-info" onClick={handleAddToCart}>
           Add to cart
         </button>
