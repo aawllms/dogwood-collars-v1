@@ -2,7 +2,57 @@
   "hash": "d1ac72da",
   "configHash": "657dfbb7",
   "lockfileHash": "cdbc34a0",
-  "browserHash": "8718f159",
-  "optimized": {},
-  "chunks": {}
+  "browserHash": "2c361444",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "a044e69f",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "f4980cb8",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "40ebf901",
+      "needsInterop": false
+    },
+    "bootstrap/dist/js/bootstrap.bundle.min.js": {
+      "src": "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "file": "bootstrap_dist_js_bootstrap__bundle__min__js.js",
+      "fileHash": "213ac76e",
+      "needsInterop": true
+    },
+    "react-bootstrap/Button": {
+      "src": "../../node_modules/react-bootstrap/esm/Button.js",
+      "file": "react-bootstrap_Button.js",
+      "fileHash": "28d93f52",
+      "needsInterop": false
+    },
+    "react-bootstrap/Modal": {
+      "src": "../../node_modules/react-bootstrap/esm/Modal.js",
+      "file": "react-bootstrap_Modal.js",
+      "fileHash": "216dde93",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-DBUGNT2R": {
+      "file": "chunk-DBUGNT2R.js"
+    },
+    "chunk-72EFPY7X": {
+      "file": "chunk-72EFPY7X.js"
+    },
+    "chunk-VUPZMC2T": {
+      "file": "chunk-VUPZMC2T.js"
+    },
+    "chunk-EQCVQC35": {
+      "file": "chunk-EQCVQC35.js"
+    }
+  }
 }

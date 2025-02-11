@@ -1,20 +1,17 @@
-import Product from "../models/products.js"; // Assuming you have a Product model
-
+import Product from "../models/products.js";
 class ProductController {
-  // Get all products
   static async getAllProducts(req, res) {
     try {
-      const products = await Product.findAll(); // Fetch all products from the database
+      const products = await Product.findAll();
       res.status(200).json(products);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch products" });
     }
   }
 
-  // Get product by ID
   static async getProductById(req, res) {
     try {
-      const product = await Product.findByPk(req.params.id); // Find product by primary key (ID)
+      const product = await Product.findByPk(req.params.id);
       if (product) {
         res.status(200).json(product);
       } else {
@@ -63,19 +60,16 @@ class ProductController {
     try {
       const { name, size, price, image } = req.body;
 
-      // Validate required fields (adjust as needed)
       if (!name || !price) {
         return res.status(400).json({ error: "Name and price are required" });
       }
 
-      // Create a new product with the provided data
       const newProduct = await Product.create({
-        // If your model columns are named differently, adjust here
         name,
-        size, // "X-Small, Small, Medium, Large"
-        price, // "24,28, 38, 48"
+        size,
+        price,
         image,
-        description, // optional
+        description,
       });
 
       res.status(201).json(newProduct);
@@ -85,11 +79,10 @@ class ProductController {
     }
   }
 
-  // Update product by ID
   static async updateProductById(req, res) {
     try {
       const [updated] = await Product.update(req.body, {
-        where: { id: req.params.id }, // Update the product by ID
+        where: { id: req.params.id },
       });
       if (updated) {
         const updatedProduct = await Product.findByPk(req.params.id);
@@ -102,14 +95,13 @@ class ProductController {
     }
   }
 
-  // Delete product by ID
   static async deleteProductById(req, res) {
     try {
       const deleted = await Product.destroy({
-        where: { id: req.params.id }, // Delete the product by ID
+        where: { id: req.params.id },
       });
       if (deleted) {
-        res.status(204).send(); // No content for successful deletion
+        res.status(204).send();
       } else {
         res.status(404).json({ error: "Product not found" });
       }
