@@ -15,7 +15,7 @@ import User from "./users.js";
 import Product from "./products.js";
 
 // // Set associations (if any)
-User.hasMany(Product, { foreignKey: "userId" });
-Product.belongsTo(User, { foreignKey: "userId" });
+// User.hasMany(Product, { foreignKey: "userId" });
+// Product.belongsTo(User, { foreignKey: "userId" });
 
 export { Product, User };
