@@ -83,7 +83,7 @@ const Product = () => {
 
   useEffect(() => {
     async function getProducts() {
-      const response = await fetch("http://localhost:5173/api/products");
+      const response = await fetch("/api/products");
       const data = await response.json();
       const allSmall = data.filter((product) => product.size === "Small");
       setCollars(allSmall);
