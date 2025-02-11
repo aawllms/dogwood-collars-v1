@@ -26,11 +26,61 @@ class ProductController {
   }
 
   // Create a new product
+  // static async createProduct(req, res) {
+  //   try {
+  //     const newProduct = await Product.create(req.body); // Create a new product with the provided data
+  //     res.status(201).json(newProduct); // Respond with the newly created product
+  //   } catch (error) {
+  //     res.status(500).json({ error: "Failed to create product" });
+  //   }
+  // }
+  //   static async createProduct(req, res) {
+  //   try {
+  //     const { name, size, price, image, description } = req.body;
+
+  //     // Validate required fields (adjust as needed)
+  //     if (!name || !price) {
+  //       return res.status(400).json({ error: "Name and price are required" });
+  //     }
+
+  //     // Create a new product with the provided data
+  //     const newProduct = await Product.create({
+  //       // If your model columns are named differently, adjust here
+  //       name,
+  //       size,          // "X-Small, Small, Medium, Large"
+  //       price,         // "24,28, 38, 48"
+  //       image,
+  //       description,   // optional
+  //     });
+
+  //     res.status(201).json(newProduct);
+  //   } catch (error) {
+  //     console.error(error);
+  //     res.status(500).json({ error: "Failed to create product" });
+  //   }
+  // }
   static async createProduct(req, res) {
     try {
-      const newProduct = await Product.create(req.body); // Create a new product with the provided data
-      res.status(201).json(newProduct); // Respond with the newly created product
+      const { name, size, price, image } = req.body;
+
+      // Validate required fields (adjust as needed)
+      if (!name || !price) {
+        return res.status(400).json({ error: "Name and price are required" });
+      }
+
+      // Create a new product with the provided data
+      const newProduct = await Product.create({
+        // If your model columns are named differently, adjust here
+        name,
+        size, // "X-Small, Small, Medium, Large"
+        price, // "24,28, 38, 48"
+        image,
+        description, // optional
+      });
+
+      res.status(201).json(newProduct);
     } catch (error) {
+      console.error(error);
       res.status(500).json({ error: "Failed to create product" });
     }
   }
