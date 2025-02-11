@@ -4,6 +4,7 @@ dotenv.config();
 import express from "express";
 import sequelize from "./config/connection.js";
 // import { sequelize } from "./models/index.js";
+import { productRouter } from "./routes/api/products-routes.js";
 
 import routes from "./routes/index.js";
 
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // turn on routes
+app.use("/api/products", productRouter);
 app.use(routes);
 
 // turn on connection to db and server
