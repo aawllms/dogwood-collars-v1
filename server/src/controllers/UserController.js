@@ -1,5 +1,5 @@
-const { user } = require("../models/users");
-const sequelize = require("../config/connection");
+import { User } from "../models/index.js";
+// const sequelize = require("../config/connection");
 
 class UserController {
   debugInfo(req) {
@@ -13,7 +13,7 @@ class UserController {
     this.debugInfo(req);
 
     try {
-      const users = await user.findAll(); // Fetch all users from the database
+      const users = await User.findAll(); // Fetch all users from the database
       res.status(200).json(users); // Respond with the users
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch users" });
@@ -26,7 +26,7 @@ class UserController {
     this.debugInfo(req);
 
     try {
-      const userData = await user.findByPk(req.params.id); // Find user by primary key (ID)
+      const userData = await User.findByPk(req.params.id); // Find user by primary key (ID)
       if (userData) {
         res.status(200).json(userData); // Respond with the user data
       } else {
@@ -43,12 +43,12 @@ class UserController {
     this.debugInfo(req);
 
     try {
-      const [updated] = await user.update(req.body, {
+      const [updated] = await User.update(req.body, {
         // Update the user based on the request body
         where: { id: req.params.id },
       });
       if (updated) {
-        const updatedUser = await user.findByPk(req.params.id); // Fetch the updated user
+        const updatedUser = await User.findByPk(req.params.id); // Fetch the updated user
         res.status(200).json(updatedUser); // Respond with the updated user data
       } else {
         res.status(404).json({ error: "User not found" });
@@ -64,7 +64,7 @@ class UserController {
     this.debugInfo(req);
 
     try {
-      const deleted = await user.destroy({
+      const deleted = await User.destroy({
         where: { id: req.params.id }, // Delete the user with the specified ID
       });
       if (deleted) {
@@ -78,4 +78,4 @@ class UserController {
   }
 }
 
-module.exports = new UserController();
+export default new UserController();
